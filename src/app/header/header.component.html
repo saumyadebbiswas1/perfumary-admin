@@ -1,0 +1,298 @@
+<div class="dark-theme">
+    <!-- header top -->
+    <div class="top-header">
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="navbar navbar-expand-sm navbar-dark">
+                    <!-- Brand/logo -->
+
+                    <span (click)="showHideMenu()" class="mr-3">
+                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" width="25px" height="25px" fill="#2bb409" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                            <g>
+                                <g>
+                                    <path d="M492,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h472c11.046,0,20-8.954,20-20S503.046,236,492,236z"/>
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <path d="M492,76H20C8.954,76,0,84.954,0,96s8.954,20,20,20h472c11.046,0,20-8.954,20-20S503.046,76,492,76z"/>
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <path d="M492,396H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h472c11.046,0,20-8.954,20-20
+                                        C512,404.954,503.046,396,492,396z"/>
+                                </g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                        </svg>
+                    </span>
+                    <a class="squ-icon">
+                        <img src="../../assets/images/logo.png" style="height: 60px;">
+                    </a>
+
+                    <!-- <a class="navbar-brand user" [ngClass]="showMainMenu === true ? '' : 'd-none3'">
+                        <img src="../../assets/images/round.svg" alt="">
+                    </a> -->
+
+                    <!-- Links -->
+                    <ul class="navbar-nav justify-content-end ml-auto align-items-center">
+                        <!-- <li class="nav-item">
+                            <form method="get" class="search-form" action="#">
+                                <label for="search-field"><span class="screen-reader-text">To search this site, enter a search term</span></label>
+                                <input class="search-field" id="search-field" type="text" name="s" value="" aria-required="false" autocomplete="off"
+                                    placeholder="Search&hellip;" />
+                                <button class="search-submit"><svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.5556 23.1111C17.9375 23.1111 23.1111 17.9375 23.1111 11.5556C23.1111 5.1736 17.9375 0 11.5556 0C5.1736 0 0 5.1736 0 11.5556C0 17.9375 5.1736 23.1111 11.5556 23.1111Z"
+                                        fill="#414352" />
+                                    <path
+                                        d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
+                                        fill="#414352" stroke="#414352" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path class="search-line" d="M26.0001 26.0001L19.7168 19.7167" stroke="#414352" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg></button>
+                            </form>
+                            <a class="search-icon">
+
+                            </a>
+                        </li> -->
+                        <li class="nav-item time-li">
+                            <p class="time">{{ currentTime }} | {{ currentDate }}</p>
+                        </li>
+                        <li class="nav-item user">
+                            <a>
+                                <img src="../../assets/images/round.svg" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- end header top -->
+
+    <!-- side bar -->
+    <div class="side-bar" [ngClass]="resSidebar === false ? '' : 'responsive-sidebar'">
+        <div class="col-12 collapse show d-md-flex pl-0 pr-0 min-vh-100" id="sidebar">
+            <ul class="nav flex-column flex-nowrap overflow-hidden" [ngClass]="showMainMenu === true ? '' : 'tooltipcol'">
+                <!-- Dashboard -->
+                <li class="nav-item" [ngClass]="currentPage == '/dashboard'? 'active' : ''" (click)="navigateTo('dashboard')">
+                    <a class="nav-link text-truncate">
+                        <svg width="26" height="29" viewBox="0 0 26 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g>
+                                <path class="das-icon"
+                                    d="M0 10.1111L13 0L26 10.1111V26C26 26.7662 25.6956 27.501 25.1539 28.0428C24.6121 28.5845 23.8773 28.8889 23.1111 28.8889H2.88889C2.12271 28.8889 1.38791 28.5845 0.846136 28.0428C0.304364 27.501 0 26.7662 0 26V10.1111Z"
+                                    fill="#63667B" />
+                                <path class="black-icon" d="M8.6665 28.8888V14.4443H17.3332V28.8888" fill="#ccc" />
+                            </g>
+                        </svg>
+                        <span [ngClass]="showMainMenu === true ? '' : 'd-none'">Dashboard</span>
+                    </a>
+                </li>
+                <!-- Product -->
+                <li class="nav-item" [ngClass]="currentPage == '/product-add' || currentPage == '/product-edit' || currentPage == '/product-list'? 'active' : ''">
+                    <a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu1">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" fill="#7e7f86" viewBox="0 0 512 512" width="40" height="40"><title>Commercial delivery </title><path d="M472.916,224H448.007a24.534,24.534,0,0,0-23.417-18H398V140.976a6.86,6.86,0,0,0-3.346-6.062L207.077,26.572a6.927,6.927,0,0,0-6.962,0L12.48,134.914A6.981,6.981,0,0,0,9,140.976V357.661a7,7,0,0,0,3.5,6.062L200.154,472.065a7,7,0,0,0,3.5.938,7.361,7.361,0,0,0,3.6-.938L306,415.108v41.174A29.642,29.642,0,0,0,335.891,486H472.916A29.807,29.807,0,0,0,503,456.282v-202.1A30.2,30.2,0,0,0,472.916,224Zm-48.077-4A10.161,10.161,0,0,1,435,230.161v.678A10.161,10.161,0,0,1,424.839,241H384.161A10.161,10.161,0,0,1,374,230.839v-.678A10.161,10.161,0,0,1,384.161,220ZM203.654,40.717l77.974,45.018L107.986,185.987,30.013,140.969ZM197,453.878,23,353.619V153.085L197,253.344Zm6.654-212.658-81.668-47.151L295.628,93.818,377.3,140.969ZM306,254.182V398.943l-95,54.935V253.344L384,153.085V206h.217A24.533,24.533,0,0,0,360.8,224H335.891A30.037,30.037,0,0,0,306,254.182Zm183,202.1A15.793,15.793,0,0,1,472.916,472H335.891A15.628,15.628,0,0,1,320,456.282v-202.1A16.022,16.022,0,0,1,335.891,238h25.182a23.944,23.944,0,0,0,23.144,17H424.59a23.942,23.942,0,0,0,23.143-17h25.183A16.186,16.186,0,0,1,489,254.182Z"/><path d="M343.949,325h7.327a7,7,0,1,0,0-14H351V292h19.307a6.739,6.739,0,0,0,6.655,4.727A7.019,7.019,0,0,0,384,289.743v-4.71A7.093,7.093,0,0,0,376.924,278H343.949A6.985,6.985,0,0,0,337,285.033v32.975A6.95,6.95,0,0,0,343.949,325Z"/><path d="M344,389h33a7,7,0,0,0,7-7V349a7,7,0,0,0-7-7H344a7,7,0,0,0-7,7v33A7,7,0,0,0,344,389Zm7-33h19v19H351Z"/><path d="M351.277,439H351V420h18.929a7.037,7.037,0,0,0,14.071.014v-6.745A7.3,7.3,0,0,0,376.924,406H343.949A7.191,7.191,0,0,0,337,413.269v32.975A6.752,6.752,0,0,0,343.949,453h7.328a7,7,0,1,0,0-14Z"/><path d="M393.041,286.592l-20.5,20.5-6.236-6.237a7,7,0,1,0-9.9,9.9l11.187,11.186a7,7,0,0,0,9.9,0l25.452-25.452a7,7,0,0,0-9.9-9.9Z"/><path d="M393.041,415.841l-20.5,20.5-6.236-6.237a7,7,0,1,0-9.9,9.9l11.187,11.186a7,7,0,0,0,9.9,0l25.452-25.452a7,7,0,0,0-9.9-9.9Z"/><path d="M464.857,295H420.891a7,7,0,0,0,0,14h43.966a7,7,0,0,0,0-14Z"/><path d="M464.857,359H420.891a7,7,0,0,0,0,14h43.966a7,7,0,0,0,0-14Z"/><path d="M464.857,423H420.891a7,7,0,0,0,0,14h43.966a7,7,0,0,0,0-14Z"/></svg>
+                        <span [ngClass]="showMainMenu === true ? '' : 'd-none'">Product</span>
+                    </a>
+                    <!-- Sub-menu List -->
+                    <div class="collapse" id="submenu1" aria-expanded="false" [ngClass]="showMainMenu === true ? '' : 'd-none'">
+                        <ul class="flex-column pl-2 nav">
+                            <!-- Add Product -->
+                            <li (click)="navigateTo('product-add')" class="nav-item">
+                                <a class="nav-link py-0">
+                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <ellipse cx="8.6339" cy="8" rx="8.07921" ry="8" fill="#7e7f86" />
+                                    </svg>
+                                    <span>Product Add</span>
+                                </a>
+                            </li>
+                            <!-- Product List -->
+                            <li (click)="navigateTo('product-list')" class="nav-item">
+                                <a class="nav-link py-0">
+                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <ellipse cx="8.6339" cy="8" rx="8.07921" ry="8" fill="#7e7f86" />
+                                    </svg>
+                                    <span>Product List</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Category -->
+                <li class="nav-item" [ngClass]="currentPage == '/category-add' || currentPage == '/category-edit' || currentPage == '/category-list'? 'active' : ''">
+                    <a class="nav-link collapsed text-truncate" href="#submenu2" data-toggle="collapse" data-target="#submenu2">
+                        <svg width="40" height="40" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4 2.88889C4 1.2934 5.2934 0 6.88889 0H12.6667C14.2622 0 15.5556 1.2934 15.5556 2.88889V8.66667C15.5556 10.2622 14.2622 11.5556 12.6667 11.5556H6.88889C5.2934 11.5556 4 10.2622 4 8.66667V2.88889Z"
+                                fill="#fff" />
+                            <path
+                                d="M4 17.3333C4 15.7378 5.2934 14.4444 6.88889 14.4444H12.6667C14.2622 14.4444 15.5556 15.7378 15.5556 17.3333V23.1111C15.5556 24.7066 14.2622 26 12.6667 26H6.88889C5.2934 26 4 24.7066 4 23.1111V17.3333Z"
+                                fill="#fff" />
+                            <path
+                                d="M18.4444 2.88889C18.4444 1.2934 19.7378 0 21.3333 0H27.1111C28.7066 0 30 1.2934 30 2.88889V8.66667C30 10.2622 28.7066 11.5556 27.1111 11.5556H21.3333C19.7378 11.5556 18.4444 10.2622 18.4444 8.66667V2.88889Z"
+                                fill="#fff" />
+                            <path
+                                d="M18.4444 17.3333C18.4444 15.7378 19.7378 14.4444 21.3333 14.4444H27.1111C28.7066 14.4444 30 15.7378 30 17.3333V23.1111C30 24.7066 28.7066 26 27.1111 26H21.3333C19.7378 26 18.4444 24.7066 18.4444 23.1111V17.3333Z"
+                                fill="#fff" />
+                        </svg>
+                        <span [ngClass]="showMainMenu === true ? '' : 'd-none'">Category</span>
+                    </a>
+                    <!-- Sub-menu List -->
+                    <div class="collapse" id="submenu2" aria-expanded="false" [ngClass]="showMainMenu === true ? '' : 'd-none'">
+                        <ul class="flex-column pl-2 nav">
+                            <!-- Add Category -->
+                            <li (click)="navigateTo('category-add')" class="nav-item">
+                                <a class="nav-link py-0">
+                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <ellipse cx="8.6339" cy="8" rx="8.07921" ry="8" fill="#7e7f86" />
+                                    </svg>
+                                    <span>Category Add</span>
+                                </a>
+                            </li>
+                            <!-- Category List -->
+                            <li (click)="navigateTo('category-list')" class="nav-item">
+                                <a class="nav-link py-0">
+                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <ellipse cx="8.6339" cy="8" rx="8.07921" ry="8" fill="#7e7f86" />
+                                    </svg>
+                                    <span>Category List</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Brand -->
+                <li class="nav-item" [ngClass]="currentPage == '/brand-add' || currentPage == '/brand-edit' || currentPage == '/brand-list'? 'active' : ''">
+                    <a class="nav-link collapsed text-truncate" href="#submenu3" data-toggle="collapse" data-target="#submenu3">
+                        <svg width="40" height="40" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4 2.88889C4 1.2934 5.2934 0 6.88889 0H12.6667C14.2622 0 15.5556 1.2934 15.5556 2.88889V8.66667C15.5556 10.2622 14.2622 11.5556 12.6667 11.5556H6.88889C5.2934 11.5556 4 10.2622 4 8.66667V2.88889Z"
+                                fill="#fff" />
+                            <path
+                                d="M4 17.3333C4 15.7378 5.2934 14.4444 6.88889 14.4444H12.6667C14.2622 14.4444 15.5556 15.7378 15.5556 17.3333V23.1111C15.5556 24.7066 14.2622 26 12.6667 26H6.88889C5.2934 26 4 24.7066 4 23.1111V17.3333Z"
+                                fill="#fff" />
+                            <path
+                                d="M18.4444 2.88889C18.4444 1.2934 19.7378 0 21.3333 0H27.1111C28.7066 0 30 1.2934 30 2.88889V8.66667C30 10.2622 28.7066 11.5556 27.1111 11.5556H21.3333C19.7378 11.5556 18.4444 10.2622 18.4444 8.66667V2.88889Z"
+                                fill="#fff" />
+                            <path
+                                d="M18.4444 17.3333C18.4444 15.7378 19.7378 14.4444 21.3333 14.4444H27.1111C28.7066 14.4444 30 15.7378 30 17.3333V23.1111C30 24.7066 28.7066 26 27.1111 26H21.3333C19.7378 26 18.4444 24.7066 18.4444 23.1111V17.3333Z"
+                                fill="#fff" />
+                        </svg>
+                        <span [ngClass]="showMainMenu === true ? '' : 'd-none'">Brand</span>
+                    </a>
+                    <!-- Sub-menu List -->
+                    <div class="collapse" id="submenu3" aria-expanded="false" [ngClass]="showMainMenu === true ? '' : 'd-none'">
+                        <ul class="flex-column pl-2 nav">
+                            <!-- Add Brand -->
+                            <li (click)="navigateTo('brand-add')" class="nav-item">
+                                <a class="nav-link py-0">
+                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <ellipse cx="8.6339" cy="8" rx="8.07921" ry="8" fill="#7e7f86" />
+                                    </svg>
+                                    <span>Brand Add</span>
+                                </a>
+                            </li>
+                            <!-- Brand List -->
+                            <li (click)="navigateTo('brand-list')" class="nav-item">
+                                <a class="nav-link py-0">
+                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <ellipse cx="8.6339" cy="8" rx="8.07921" ry="8" fill="#7e7f86" />
+                                    </svg>
+                                    <span>Brand List</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Sign Out -->
+                <!-- <li class="nav-item" (click)="signOut()">
+                    <a class="nav-link text-truncate">
+                        <svg version="1.1" width="28" height="31" fill="#414352" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                            <g>
+                                <g>
+                                    <path  d="M255.15,468.625H63.787c-11.737,0-21.262-9.526-21.262-21.262V64.638c0-11.737,9.526-21.262,21.262-21.262H255.15
+                                        c11.758,0,21.262-9.504,21.262-21.262S266.908,0.85,255.15,0.85H63.787C28.619,0.85,0,29.47,0,64.638v382.724
+                                        c0,35.168,28.619,63.787,63.787,63.787H255.15c11.758,0,21.262-9.504,21.262-21.262
+                                        C276.412,478.129,266.908,468.625,255.15,468.625z"/>
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <path d="M505.664,240.861L376.388,113.286c-8.335-8.25-21.815-8.143-30.065,0.213s-8.165,21.815,0.213,30.065l92.385,91.173
+                                        H191.362c-11.758,0-21.262,9.504-21.262,21.262c0,11.758,9.504,21.263,21.262,21.263h247.559l-92.385,91.173
+                                        c-8.377,8.25-8.441,21.709-0.213,30.065c4.167,4.21,9.653,6.336,15.139,6.336c5.401,0,10.801-2.041,14.926-6.124l129.276-127.575
+                                        c4.04-3.997,6.336-9.441,6.336-15.139C512,250.302,509.725,244.88,505.664,240.861z"/>
+                                </g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                            <g>
+                            </g>
+                        </svg>
+                        <span [ngClass]="showMainMenu === true ? '' : 'd-none'">Sign Out</span>
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+    <!-- end side bar -->
+
+    <router-outlet></router-outlet>
+</div>

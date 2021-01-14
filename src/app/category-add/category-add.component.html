@@ -1,0 +1,100 @@
+<app-loader [showloader]=showloader></app-loader>
+<section class="dashboard-body">
+    <div class="container-fluid">
+        <div class="top-col">
+            <h5 class="head-text color-green">Category Add</h5>
+        </div>
+     
+        <div class="main-panel">
+            <div class="main-content">
+                <div class="content-wrapper">
+                    <!-- Basic form layout section start -->   
+                    <section id="basic-form-layouts">
+                        <div class="row match-height">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title" id="basic-layout-form-center">Enter Category Details</h4>
+                                    </div>
+
+                                    <div class="card-content">
+                                        <div class="px-3">
+                                            <form [formGroup]="categoryForm" class="form" (ngSubmit)="submitCategory()">
+                                                <div class="row justify-content-md-center">
+                                                    <div class="col-md-6">
+                                                        <div class="form-body">
+                                                            <!-- Category Name -->
+                                                            <div class="form-group">
+                                                                <label for="eventInput1">Category Name *</label>
+                                                                <input type="text" id="eventInput1" class="form-control" name="fullname" formControlName="categoryname" [ngClass]="{'is-invalid': categoryForm.controls?.categoryname?.invalid && categoryForm.controls?.categoryname?.touched }">
+                                                                <div *ngIf="categoryForm.controls?.categoryname?.errors?.required" class="invalid-feedback">
+                                                                    Category name is required.
+                                                                </div>
+                                                                <div *ngIf="categoryForm.controls?.categoryname?.errors?.maxlength" class="invalid-feedback">
+                                                                    Category name can maximum 100 characters.
+                                                                </div>
+                                                                <div *ngIf="categoryForm.controls?.categoryname?.errors?.minlength" class="invalid-feedback">
+                                                                    Category name will atleast 2 characters.
+                                                                </div>
+                                                                <div *ngIf="categoryForm.controls?.categoryname?.errors?.pattern" class="invalid-feedback">
+                                                                    Category name will include only characters.
+                                                                </div>
+                                                            </div>
+                                                            <!-- Category Products -->
+                                                            <div class="form-group">
+                                                                <label for="products">Select Products *</label>
+                                                                <ng-multiselect-dropdown
+                                                                    name="products"
+                                                                    [placeholder]="'Select Products'"
+                                                                    [settings]="dropdownSettings"
+                                                                    [data]="productList"
+                                                                    formControlName="products"
+                                                                    (onSelect)="onItemSelect($event)"(onDeSelect)="onItemDeSelect($event)"
+                                                                    (onSelectAll)="onSelectAll($event)" (onDeSelectAll)="onDeSelectAll($event)" [ngClass]="{'is-invalid': categoryForm.controls?.products?.invalid && categoryForm.controls?.products?.touched }"
+                                                                >
+                                                                </ng-multiselect-dropdown><div *ngIf="categoryForm.controls?.products?.errors?.required" class="invalid-feedback">
+                                                                    Category products is required.
+                                                                </div>
+                                                            </div>
+                                                            <!-- Category Image -->
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label>Category Image *</label>
+                                                                        <input type="file" class="form-control-file" #fileInput (change)="fileChangeEvent($event)">
+                                                                        <div class="error-message">{{imageError}}</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div *ngIf="isImageSaved" class="shw_img">
+                                                                        <img style="width: 100px;" [src]="cardImageBase64" />
+                                                                        <a (click)="removeImage(fileInput)" class="re_move">Remove</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Category Description -->
+                                                            <div class="form-group">
+                                                                <label for="eventInput2">Category Description *</label>
+                                                                <angular-editor [config]="config" formControlName="categorydesc"  (ngModelChange)="editorChangeEvent($event)"></angular-editor>
+                                                                <div class="error-message">{{editorError}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-actions center justify-content-md-center" style="display:flex">
+                                                    <button type="button" class="btn btn-raised btn-warning mr-3" (click)="resetForm(fileInput)"><i class="ft-x"></i> Cancel</button>
+                                                    <button type="submit" class="btn btn-raised btn-primary" [disabled]="!categoryForm.valid || cardImageBase64 == null"><i class="fa fa-check-square-o"></i> Save</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
